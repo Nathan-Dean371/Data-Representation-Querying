@@ -8,10 +8,14 @@ let addTask = (task) =>
     return qArray.length;
 }
 
-let listAllTasks = () => qArray.forEach((task) =>
+let listAllTasks = () => 
 {
- console.log(task);
-})
+    qArray.forEach((task) =>
+    {
+        console.log(task);
+    });
+ 
+}
 
 let deleteTask = (task) =>
 {
