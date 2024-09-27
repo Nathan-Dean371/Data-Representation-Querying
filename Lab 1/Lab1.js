@@ -1,6 +1,6 @@
-let q1 = () => 
+let q1 = (input) => 
 {
-    return console.log("Data representation & querying");
+    return input;
 }
 
-q1();
+console.log(q1("Question 2"));
