@@ -14,7 +14,6 @@ let listAllTasks = () =>
     {
         console.log(task);
     });
- 
 }
 
 let deleteTask = (task) =>
