@@ -1,5 +1,4 @@
-// Importing the logo image
-import logo from './logo.svg';
+
 // Importing necessary components from react-router-dom for routing
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Importing the main CSS file for the app

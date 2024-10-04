@@ -14,7 +14,7 @@ const NavigationBar = () => {
         {/* Navigation links */}
         <Nav className="me-auto">
           {/* Link to the home page */}
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/home">Home</Nav.Link>
           {/* Link to the create page */}
           <Nav.Link href="/create">Create</Nav.Link>
           {/* Link to the read page */}
