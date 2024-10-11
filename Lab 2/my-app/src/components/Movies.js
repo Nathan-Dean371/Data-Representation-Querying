@@ -1,11 +1,13 @@
+import MovieItem from "./MovieItem";
 const Movies = (data) =>
 {
-    return(
-        <div>
-            <h1>Hello from movie component</h1>
-            {console.log(data.myMovies)}
-        </div>
-    )
+    return data.myMovies.map
+    (
+        ()=> 
+            {
+                return <MovieItem/>
+            }
+    );
 }
 
 export default Movies
