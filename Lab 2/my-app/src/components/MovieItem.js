@@ -1,9 +1,11 @@
-const MovieItem = () =>
+const MovieItem = (props) =>
 {
     return(
-        <h3>Hello from movie item</h3>
+        <div>
+            <h3>{props.myMovie.Title}</h3>
+            <p>{props.myMovie.year}</p>
+            <img src={props.myMovie.Poster}></img>
+        </div>
     );
-    
-
 }
 export default MovieItem

@@ -1,13 +1,11 @@
 import MovieItem from "./MovieItem";
-const Movies = (data) =>
+function Movies(props)
 {
-    return data.myMovies.map
-    (
-        ()=> 
-            {
-                return <MovieItem/>
-            }
-    );
+    return props.myMovies.map(
+        (movie) =>
+        {
+            return <MovieItem myMovie={movie} key={movie.imdbID}/>
+        });
 }
 
 export default Movies
