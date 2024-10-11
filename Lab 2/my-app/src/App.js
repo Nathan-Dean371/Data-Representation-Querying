@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
 import NavigationBar from './components/NavigationBar';
+import Read from './components/Read';
+import Create from './components/Create';
 
 // Main App component
 function App() {
@@ -22,9 +24,9 @@ function App() {
           {/* Route for the home page, rendering the Content component */}
           <Route path="/home" element={<Content />} />
           {/* Route for the read page, rendering the Footer component */}
-          <Route path="/read" element={<Footer />} />
+          <Route path="/read" element={<Read/>} />
           {/* Route for the create page, rendering the Header component */}
-          <Route path="/create" element={<Header />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
       </Router>
     </div>
