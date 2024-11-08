@@ -1,5 +1,6 @@
 // Importing the React library
 import React from 'react';
+import ExpressInteract from './ExpressInteract';
 
 // Functional component for displaying content
 const Content = () => {
@@ -7,8 +8,7 @@ const Content = () => {
     <div>
       {/* Displaying a heading */}
       <h1>Hello World!</h1>
-      {/* Displaying the current time */}
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      <ExpressInteract />
     </div>
   );
 }
