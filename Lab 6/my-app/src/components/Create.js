@@ -4,58 +4,61 @@ import { useEffect, useState } from 'react'; // Import useEffect and useState ho
 // Define the Create component
 const Create = () =>
 {
-    // Function to handle form submission
-    const handleSubmit = (e) =>
-    {
-        e.preventDefault(); // Prevent the default form submission behavior
-        // Log the new movie details to the console
-        console.log("New title: " + title);
-        console.log("New year: " + movieYear);
-        console.log("New poster URL: " + moviePoster);
-    }
-
+    
     // Declare state variables for title, movieYear, and moviePoster
     const [title, setTitle] = useState('');
     const [movieYear, setYear] = useState('');
     const [moviePoster, setPoster] = useState('');
 
-    // Return the JSX to render the component
+    // Define the handleSubmit function
+    const handleSubmit = (event) =>
+    {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Make a POST request to the express server
+        axios.post("http://localhost:4000/api/movies", {
+            Title: title,
+            Year: movieYear,
+            Poster: moviePoster
+        })
+        .then((response) =>
+        {
+            console.log(response);
+        })
+        .catch((error) =>
+        {
+            console.log(error);
+        });
+    }
+
+    // Return the Create component
+
     return (
         <div>
-            <h3>Hello from create</h3>
-            {/* Form to add a new movie */}
+            <h1>Create Movie</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    {/* Input field for movie title */}
-                    <label>Add movie title: </label>
-                    <input 
-                        type="text" 
-                        className="form-control"
-                        value={title}
-                        onChange={(e) => { setTitle(e.target.value)}} 
-                    />
-                    {/* Input field for movie year */}
-                    <label>Add movie year: </label>
-                    <input 
-                        type="text" 
-                        className="form-control"
-                        value={movieYear}
-                        onChange={(e) => { setYear(e.target.value)}}
-                    />
-                    {/* Input field for movie poster URL */}
-                    <label>Add movie poster URL</label>
-                    <input 
-                        type="text" 
-                        className="form-control"
-                        value={moviePoster}
-                        onChange={(e) => { setPoster(e.target.value)}}
-                    />
-                </div>
-                {/* Submit button */}
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <label>
+                    Title:
+                    <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+                </label>
+                <br />
+                <label>
+                    Year:
+                    <input type="text" value={movieYear} onChange={(event) => setYear(event.target.value)} />
+                </label>
+                <br />
+                <label>
+                    Poster:
+                    <input type="text" value={moviePoster} onChange={(event) => setPoster(event.target.value)} />
+                </label>
+                <br />
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
+
+    
 }
 
 // Export the Create component as the default export

@@ -3,7 +3,10 @@ const app = express();
 const port = 4000;
 const path = require("path");
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors());
 
 app.use(function(req, res, next) {
@@ -50,4 +53,9 @@ app.get("/api/movies", (req, res) => {
   ];
 
   res.json({ movies });
+});
+
+app.post("/api/movies", (req, res) => {
+  console.log(req.body);
+  res.send("Movie received");
 });
