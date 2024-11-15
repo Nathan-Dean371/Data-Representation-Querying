@@ -17,6 +17,17 @@ const movieSchema = new mongoose.Schema({
 
 const Movie = mongoose.model('Movie', movieSchema);
 
+app.post("/api/movies", async (req, res) => {
+
+  const { title, year, poster} = req.body;
+
+  const newMovie = new Movie({title, year, poster});
+  await newMovie.save();
+
+  res.status(201).json({ message: "Movie saved successfully", movie : newMovie });
+
+});
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -68,7 +79,4 @@ app.get("/api/movies", (req, res) => {
   res.json({ movies });
 });
 
-app.post("/api/movies", (req, res) => {
-  console.log(req.body);
-  res.send("Movie received");
-});
+
