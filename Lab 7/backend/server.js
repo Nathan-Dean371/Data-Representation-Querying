@@ -9,6 +9,15 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@lab7-cluster.khz7c.mongodb.net/?retryWrites=true&w=majority&appName=Lab7-Cluster');
 
 
+const movieSchema = new mongoose.Schema({
+  Title: String,
+  Year: String,
+  Poster: String
+});
+
+const Movie = mongoose.model('Movie', movieSchema);
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
