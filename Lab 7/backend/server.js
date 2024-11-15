@@ -4,6 +4,10 @@ const port = 4000;
 const path = require("path");
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://admin:admin@lab7-cluster.khz7c.mongodb.net/?retryWrites=true&w=majority&appName=Lab7-Cluster');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
