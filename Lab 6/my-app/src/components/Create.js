@@ -17,19 +17,25 @@ const Create = () =>
         event.preventDefault();
 
         // Make a POST request to the express server
-        axios.post("http://localhost:4000/api/movies", {
-            Title: title,
-            Year: movieYear,
-            Poster: moviePoster
-        })
-        .then((response) =>
-        {
-            console.log(response);
-        })
-        .catch((error) =>
-        {
-            console.log(error);
-        });
+        // Ensure data is sent in the correct format
+        axios.post('http://localhost:4000/api/movies', 
+            { title, year: movieYear, poster: moviePoster }, 
+            { headers: { 'Content-Type': 'application/json' } }
+        ).then(response =>
+            {
+                // Log the response to the console
+                console.log(response);
+
+                // Reset the form
+                setTitle('');
+                setYear('');
+                setPoster('');
+            })
+            .catch(error =>
+            {
+                // Log any errors to the console
+                console.error(error);
+            });
     }
 
     // Return the Create component
