@@ -20,7 +20,10 @@ const ExpressInteract = () =>
         .then((response) =>
         {
             // Set the response data to the movies state
-            setMovies(response.data.movies);
+            //setMovies(response.data);
+
+            console.log(response.data);
+            setMovies(response.data);
         })
         .catch((error) =>
         {
@@ -37,10 +40,10 @@ const ExpressInteract = () =>
                 {movies.map((movie) =>
                 {
                     return (
-                        <li key={movie.imdbID}>
-                            <img src={movie.Poster} alt={movie.Title} />
-                            <h2>{movie.Title}</h2>
-                            <p>{movie.Year}</p>
+                        <li key={movie._id}>
+                            <img src={movie.poster} alt={movie.title} />
+                            <h2>{movie.title}</h2>
+                            <p>{movie.year}</p>
                         </li>
                     );
                 })}
