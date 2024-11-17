@@ -1,8 +1,8 @@
 import MovieItem from "./MovieItem";
 
-function Movies(props)
+function Movies(myMovies)
 {
-    return props.myMovies.map(
+    return myMovies.map(
         (movie) =>
         {
             return <MovieItem myMovie={movie} key={movie.imdbID}/>

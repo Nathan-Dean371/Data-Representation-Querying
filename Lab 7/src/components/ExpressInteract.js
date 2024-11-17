@@ -40,6 +40,7 @@ const ExpressInteract = () =>
                 {movies.map((movie) =>
                 {
                     return (
+
                         <li key={movie._id}>
                             <img src={movie.poster} alt={movie.title} />
                             <h2>{movie.title}</h2>

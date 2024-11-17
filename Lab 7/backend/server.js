@@ -58,8 +58,12 @@ app.get("/api/movies", async (req, res) => {
 
 });
 
-
-
+app.get("/api/movies/:id", async (req, res) => {
+  
+    const movie = await Movie.findById(req.params.id);
+    res.json(movie);
+  
+  });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));

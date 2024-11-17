@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'; // Import useEffect and useState ho
 // Define the Create component
 const Create = () =>
 {
-    
     // Declare state variables for title, movieYear, and moviePoster
     const [title, setTitle] = useState('');
     const [movieYear, setYear] = useState('');

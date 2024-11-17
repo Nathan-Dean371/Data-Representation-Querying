@@ -5,29 +5,33 @@ const Read = () =>
 { 
     // Declare a state variable 'movies' and a function 'setMovies' to update it
     const [movies, setMovies] = useState([]);
+    const [id, setId] = useState('');
 
-
-     // useEffect hook to perform side effects in the component
-    useEffect(() =>
+    const handleSubmit = (event) =>
     {
-        axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+        event.preventDefault();
+        
+        axios.get('http://localhost:4000/api/movies/' + id)
         .then((response) =>
         {
-          //console.log(response.data);
-          setMovies(response.data.movies);
+            console.log(response.data);
+            setMovies(response.data);
         })
         .catch((error) =>
         {
             console.log(error);
         });
-    }); 
+    }
 
 
     return (
         <div>
             <h3>Hello from Read component</h3>
-            {/* <Movies myMovies={data}></Movies> */}
-            <Movies myMovies={movies}></Movies>
+            <form onSubmit={handleSubmit}>
+                <label>Id:</label><br />
+                <input type="text" id="id" value={id} onChange={(event) => setId(event.target.value)}/><br />
+                <button type="submit">Search</button>
+            </form>
         </div>
     );
 };
