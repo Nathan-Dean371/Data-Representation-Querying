@@ -22,14 +22,14 @@ app.use(function(req, res, next) {
 
 
 
-mongoose.connect('mongodb+srv://admin:admin@lab7-cluster.khz7c.mongodb.net/?retryWrites=true&w=majority&appName=Lab7-Cluster');
+mongoose.connect('mongodb+srv://admin:admin@lab-7.khz7c.mongodb.net/?retryWrites=true&w=majority&appName=Lab-7');
 
 
 const movieSchema = new mongoose.Schema(
   {
-    Title: String,
-    Year: String,
-    Poster: String
+    title: String,
+    year: String,
+    poster: String
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
@@ -37,11 +37,13 @@ const Movie = mongoose.model('Movie', movieSchema);
 app.post("/api/movies", async (req, res) => {
 
   
-  const { title, year, poster } = req.body;
-  console.log(req.body);
-  console.log(title, year, poster);
+  const title = req.body.Title;
+  const year = req.body.Year;
+  const poster = req.body.Poster;
+  
   var newMovie = new Movie({ title, year, poster });
   
+  console.log(newMovie);
   
   await newMovie.save();
 
